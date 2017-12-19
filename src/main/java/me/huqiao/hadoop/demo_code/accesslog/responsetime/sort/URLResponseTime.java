@@ -71,5 +71,4 @@ public class URLResponseTime implements WritableComparable<URLResponseTime>{
 		return url;
 	}
 	
-	
 }
