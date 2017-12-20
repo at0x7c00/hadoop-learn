@@ -19,12 +19,12 @@ import org.apache.hadoop.mapreduce.Reducer;
  * </pre>
  * @author huqiao
  */
-public class URLResponseTimeReducer extends Reducer<Text, LongWritable, Text, LongWritable> {
+public class URLResponseTimeReducer extends Reducer<MyText, LongWritable, MyText, LongWritable> {
 
 	LongWritable value = new LongWritable();
 	
 	@Override
-	protected void reduce(Text key, Iterable<LongWritable> values,
+	protected void reduce(MyText key, Iterable<LongWritable> values,
 			Context ctx) throws IOException, InterruptedException {
 		
 		int count = 0;

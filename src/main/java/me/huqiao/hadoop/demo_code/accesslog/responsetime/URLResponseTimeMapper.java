@@ -19,7 +19,7 @@ import org.apache.hadoop.mapreduce.Mapper;
  * </pre>
  * @author huqiao
  */
-public class URLResponseTimeMapper extends Mapper<LongWritable,Text,Text,LongWritable>{
+public class URLResponseTimeMapper extends Mapper<LongWritable,Text,MyText,LongWritable>{
 	
 
 	//make a member property to avoid new instance every time when map function invoked.
@@ -57,7 +57,8 @@ public class URLResponseTimeMapper extends Mapper<LongWritable,Text,Text,LongWri
 		
 		this.key.set(path);
 		this.value.set(responseTime);
-		context.write(this.key,this.value);
+		
+		context.write(new MyText(this.key.toString()),this.value);
 	}
 
 	

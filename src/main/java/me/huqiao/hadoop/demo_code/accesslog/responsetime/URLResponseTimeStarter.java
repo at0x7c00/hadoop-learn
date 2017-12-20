@@ -17,7 +17,7 @@ public class URLResponseTimeStarter {
 		String inputPath = args[0];
         String outputPath = args[1];
         
-        FileSystem fs = FileSystem.get(new URI("hdfs://centos01:9000"),new Configuration(),"root");
+        FileSystem fs = FileSystem.get(new URI("hdfs://vcentos1:9000"),new Configuration(),"root");
         
         //delete output path when it existed
         Path output = new Path(outputPath);
@@ -32,10 +32,10 @@ public class URLResponseTimeStarter {
         job.setMapperClass(URLResponseTimeMapper.class);
         job.setReducerClass(URLResponseTimeReducer.class);
         
-        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputKeyClass(MyText.class);
         job.setMapOutputValueClass(LongWritable.class);
         
-        job.setOutputKeyClass(Text.class);
+        job.setOutputKeyClass(MyText.class);
         job.setOutputValueClass(LongWritable.class);
         
         
